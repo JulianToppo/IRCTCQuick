@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
       <TrainForm/>
+      <p> Hey! We are making Irctc Extension </p>
     </div>
   );
 }
