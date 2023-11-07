@@ -1,7 +1,15 @@
-import React from "react";
+import {React,useState} from "react";
 import "./TrainForm.css";
+import TrainDetails from "./TrainDetails";
 
 export default function TrainForm() {
+
+  
+    const [trainName, settrainName] = useState("")
+    const [trainNumber, settrainNumber] = useState("")
+
+    //addition of trainname and trainnumber recommendation
+
   return (
     <div className="form-body">
       <div className="row">
@@ -11,7 +19,7 @@ export default function TrainForm() {
               <h3>Get Notification</h3>
               <p>Fill in the data below.</p>
               <form className="requires-validation" noValidate>
-                <div className="col-md-12">
+                {/* <div className="col-md-12">
                   <input
                     className="form-control"
                     type="text"
@@ -23,8 +31,10 @@ export default function TrainForm() {
                   <div className="invalid-feedback">
                     Train Name cannot be be blank!
                   </div>
-                </div>
-                <div className="col-md-12">
+                </div> */}
+                <TrainDetails  inputs={"trainName"} inputVal={trainName} setInputValue={settrainName} />
+                <TrainDetails inputs={"trainNumber"} />
+                {/* <div className="col-md-12">
                   <input
                     className="form-control"
                     type="text"
@@ -36,7 +46,7 @@ export default function TrainForm() {
                   <div className="invalid-feedback">
                     Train Number cannot be blank!
                   </div>
-                </div>
+                </div> */}
                 <div className="col-md-12">
                   <div class="form-floating">
                     <select className="form-select mt-3" required>
@@ -53,7 +63,9 @@ export default function TrainForm() {
                       <option value="howrah">Howrah</option>
                       <option value="patna">Patna</option>
                     </select>
-                    <label htmlFor="trainFrom" style={{color:"black"}}>Source</label>
+                    <label htmlFor="trainFrom" style={{ color: "black" }}>
+                      Source
+                    </label>
                     <div className="valid-feedback">
                       You selected a position!
                     </div>
@@ -78,7 +90,9 @@ export default function TrainForm() {
                       <option value="howrah">Howrah</option>
                       <option value="patna">Patna</option>
                     </select>
-                    <label htmlFor="trainTo" style={{color:"black"}}>Destination</label>
+                    <label htmlFor="trainTo" style={{ color: "black" }}>
+                      Destination
+                    </label>
                     <div className="valid-feedback">
                       You selected a position!
                     </div>
