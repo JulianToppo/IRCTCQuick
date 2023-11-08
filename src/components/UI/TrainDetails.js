@@ -1,19 +1,23 @@
 import React from 'react'
 
 export default function TrainDetails(props) {
+    
+    const handleChange = (event) => {
+        console.log(event.target.value);
+        const target = (event.target.value).toUpperCase();
+        props.setInputValue(target);
+    }
+
     return (
         <>
             <div className="col-md-12">
                 <input
-                    className="form-control"
-                    type="text"
+                    className="form-control"  // used for styling
+                    type={props.type}
                     value={props.inputVal}
-                    name={props.inputs}
-                    placeholder={props.inputs}
-                    onChange={(e)=>{
-                        props.setInputValue(e.target.value)
-                    }}
-                    required
+                    name={props.inputsName}  
+                    placeholder={props.placeholder}  // for placeholder
+                    onChange={handleChange}
                 />
                 {/* <div className="valid-feedback">Train Name is valid!</div>
                 <div className="invalid-feedback">
