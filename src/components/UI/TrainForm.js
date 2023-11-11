@@ -1,10 +1,13 @@
 import { React, useState } from "react";
 import "./TrainForm.css";
 import TrainDetails from "./TrainDetails";
+import TravelPoints from "./TravelPoints";
 
 export default function TrainForm() {
-  const [trainName, setTrainName] = useState("");
-  const [trainNumber, setTrainNumber] = useState();
+  const [trainName, setTrainName] = useState('');
+  const [trainNumber, setTrainNumber] = useState('');
+  const [trainFrom, setTrainFrom] = useState('');
+  const [trainTo, setTrainTo] = useState('');
 
   //addition of trainname and trainnumber recommendation
 
@@ -24,7 +27,7 @@ export default function TrainForm() {
                   setInputValue={setTrainName}
                   placeholder={"Train Name"}
                 />
-                
+
                 <TrainDetails
                   type="number"
                   inputsName={"trainNumber"}
@@ -33,33 +36,15 @@ export default function TrainForm() {
                   placeholder={"Train Number"}
                 />
 
-                <div className="col-md-12">
-                  <div class="form-floating">
-                    <select className="form-select mt-3" required>
-                      <option
-                        selected
-                        disabled
-                        value=""
-                        id="trainFrom"
-                        aria-label="Floating label select example"
-                      >
-                        From
-                      </option>
-                      <option value="ranchi">Ranchi</option>
-                      <option value="howrah">Howrah</option>
-                      <option value="patna">Patna</option>
-                    </select>
-                    <label htmlFor="trainFrom" style={{ color: "black" }}>
-                      Source
-                    </label>
-                    <div className="valid-feedback">
-                      You selected a position!
-                    </div>
-                    <div className="invalid-feedback">
-                      Please select a position!
-                    </div>
-                  </div>
-                </div>
+                <TravelPoints inputVal={trainFrom} setInputValue={setTrainFrom} label={'Source'} />
+
+                <TravelPoints inputVal={trainTo} setInputValue={setTrainTo} label={'Destination'} />
+
+
+
+
+                {/* 
+
                 <div className="col-md-12">
                   <div class="form-floating">
                     <select className="form-select mt-3" required>
@@ -86,7 +71,7 @@ export default function TrainForm() {
                       Please select a position!
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <div className="col-md-12 mt-3">
                   <label className="mb-3 mr-1" htmlFor="class">
                     Class:
