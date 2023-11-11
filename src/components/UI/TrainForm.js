@@ -3,12 +3,11 @@ import "./TrainForm.css";
 import TrainDetails from "./TrainDetails";
 
 export default function TrainForm() {
-
-  const [trainName, setTrainName] = useState("")
-  const [trainNumber, setTrainNumber] = useState()
+  const [trainName, setTrainName] = useState("");
+  const [trainNumber, setTrainNumber] = useState();
 
   //addition of trainname and trainnumber recommendation
-  
+
   return (
     <div className="form-body">
       <div className="row">
@@ -18,13 +17,22 @@ export default function TrainForm() {
               <h3>Get Notification</h3>
               <p>Fill in the data below.</p>
               <form className="requires-validation" noValidate>
-                <TrainDetails type="text" inputsName={"trainName"} inputVal={trainName} setInputValue={setTrainName} placeholder={'Train Name'} />
-                <TrainDetails type="number" inputsName={"trainNumber"} inputVal={trainNumber} setInputValue={setTrainNumber} placeholder={'Train Number'}/>
+                <TrainDetails
+                  type="text"
+                  inputsName={"trainName"}
+                  inputVal={trainName}
+                  setInputValue={setTrainName}
+                  placeholder={"Train Name"}
+                />
+                
+                <TrainDetails
+                  type="number"
+                  inputsName={"trainNumber"}
+                  inputVal={trainNumber}
+                  setInputValue={setTrainNumber}
+                  placeholder={"Train Number"}
+                />
 
-
-
-                        
-                                
                 <div className="col-md-12">
                   <div class="form-floating">
                     <select className="form-select mt-3" required>

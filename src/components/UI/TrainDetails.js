@@ -9,7 +9,7 @@ export default function TrainDetails(props) {
     }
 
     return (
-        <>
+        
             <div className="col-md-12">
                 <input
                     className="form-control"  // used for styling
@@ -24,6 +24,6 @@ export default function TrainDetails(props) {
                     Train Name cannot be be blank!
                 </div> */}
             </div>
-        </>
+        
     )
 }
