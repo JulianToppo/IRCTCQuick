@@ -2,12 +2,16 @@ import { React, useState } from "react";
 import "./TrainForm.css";
 import TrainDetails from "./TrainDetails";
 import TravelPoints from "./TravelPoints";
+import TrainClass from "./TrainClass";
 
 export default function TrainForm() {
-  const [trainName, setTrainName] = useState('');
-  const [trainNumber, setTrainNumber] = useState('');
-  const [trainFrom, setTrainFrom] = useState('');
-  const [trainTo, setTrainTo] = useState('');
+  const [trainName, setTrainName] = useState("");
+  const [trainNumber, setTrainNumber] = useState("");
+  const [trainFrom, setTrainFrom] = useState("");
+  const [trainTo, setTrainTo] = useState("");
+  const [selectedClass, setSelectedClass] = useState("");
+
+
 
   //addition of trainname and trainnumber recommendation
 
@@ -36,123 +40,35 @@ export default function TrainForm() {
                   placeholder={"Train Number"}
                 />
 
-                <TravelPoints inputVal={trainFrom} setInputValue={setTrainFrom} label={'Source'} />
+                <TravelPoints
+                  inputVal={trainFrom}
+                  setInputValue={setTrainFrom}
+                  label={"Source"}
+                />
 
-                <TravelPoints inputVal={trainTo} setInputValue={setTrainTo} label={'Destination'} />
+                <TravelPoints
+                  inputVal={trainTo}
+                  setInputValue={setTrainTo}
+                  label={"Destination"}
+                />
 
-
-
-
-                {/* 
-
-                <div className="col-md-12">
-                  <div class="form-floating">
-                    <select className="form-select mt-3" required>
-                      <option
-                        selected
-                        disabled
-                        value=""
-                        id="trainTo"
-                        aria-label="Floating label"
-                      >
-                        From
-                      </option>
-                      <option value="ranchi">Ranchi</option>
-                      <option value="howrah">Howrah</option>
-                      <option value="patna">Patna</option>
-                    </select>
-                    <label htmlFor="trainTo" style={{ color: "black" }}>
-                      Destination
-                    </label>
-                    <div className="valid-feedback">
-                      You selected a position!
-                    </div>
-                    <div className="invalid-feedback">
-                      Please select a position!
-                    </div>
-                  </div>
-                </div> */}
                 <div className="col-md-12 mt-3">
-                  <label className="mb-3 mr-1" htmlFor="class">
+                  <label>
                     Class:
                   </label>
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="class"
-                    id="male"
-                    autoComplete="off"
-                    required
-                  />
-                  <label
-                    className="btn btn-sm btn-outline-secondary"
-                    htmlFor="1ac"
-                  >
-                    1AC
-                  </label>
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="class"
-                    id="2ac"
-                    autoComplete="off"
-                    required
-                  />
-                  <label
-                    className="btn btn-sm btn-outline-secondary"
-                    htmlFor="2ac"
-                  >
-                    2AC
-                  </label>
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="class"
-                    id="3AC"
-                    autoComplete="off"
-                    required
-                  />
-                  <label
-                    className="btn btn-sm btn-outline-secondary"
-                    htmlFor="3AC"
-                  >
-                    3AC
-                  </label>
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="class"
-                    id="ALL"
-                    autoComplete="off"
-                    required
-                  />
-                  <label
-                    className="btn btn-sm btn-outline-secondary"
-                    htmlFor="ALL"
-                  >
-                    ALL
-                  </label>
-                  <input
-                    type="radio"
-                    className="btn-check"
-                    name="class"
-                    id="SL"
-                    autoComplete="off"
-                    required
-                  />
-                  <label
-                    className="btn btn-sm btn-outline-secondary"
-                    htmlFor="SL"
-                  >
-                    SL
-                  </label>
-                  <div className="valid-feedback mv-up">
-                    You selected a class!
-                  </div>
-                  <div className="invalid-feedback mv-up">
-                    Please select a class!
-                  </div>
+
+                  <TrainClass classType={'1AC'} checkCondition={selectedClass === '1AC'} changeClass={setSelectedClass} />
+                  <TrainClass classType={'2AC'} checkCondition={selectedClass === '2AC'} changeClass={setSelectedClass} />
+                  <TrainClass classType={'3AC'} checkCondition={selectedClass === '3AC'} changeClass={setSelectedClass} />
+                  <TrainClass classType={'ALL'} checkCondition={selectedClass === 'ALL'} changeClass={setSelectedClass} />
+                  <TrainClass classType={'SL'} checkCondition={selectedClass === 'SL'} changeClass={setSelectedClass} />
                 </div>
+
+                {/* To check if the values are fetched correctly */}
+                <div style={{color:'white'}}>
+                  {selectedClass +"" +trainTo}
+                </div>
+
                 <div className="form-check">
                   <input
                     className="form-check-input"
